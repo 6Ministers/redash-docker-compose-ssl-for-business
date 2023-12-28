@@ -1,4 +1,6 @@
-# Installing Redash+Caddy+SSL with docker-compose.
+# This instruction is not yet working
+
+Installing Redash+Caddy+SSL with docker-compose.
 
 ## Quick Installation
 
