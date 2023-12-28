@@ -63,14 +63,13 @@ https://redash.your-domain.com:443 {
 
 ```
 
-Log in with the default username and password:
+**Run Redash:**
 
 ``` bash
-username: admin
+docker-compose up -d
 ```
-``` bash
-password: admin
-```
+
+Then open `https://redash.domain.com:` to access Redash
 
 ## Redash container management
 
