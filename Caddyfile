@@ -1,4 +1,4 @@
-https://redash.6ministers.com:443 {
+https://redash.domain.com:443 {
     reverse_proxy 127.0.0.1:5000
 #	tls admin@example.org
 	encode zstd gzip
