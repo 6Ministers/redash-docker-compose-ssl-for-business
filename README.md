@@ -88,7 +88,7 @@ docker-compose-non-dev up restart
 **Restart**:
 
 ``` bash
-sudo docker-compose-non-dev down && sudo docker-compose-non-dev up -d
+sudo docker-compose down && sudo docker-compose up -d
 ```
 
 **Stop**:
