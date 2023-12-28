@@ -4,7 +4,8 @@ x-redash-service: &redash-service
   depends_on:
     - postgres
     - redis
-  env_file: /opt/redash/env
+  env_file: 
+    - env
   restart: always
 
 services:
@@ -27,19 +28,15 @@ services:
       - "5000:5000"
     environment:
       REDASH_WEB_WORKERS: 4 
-
   scheduler:
     <<: *redash-service
     command: scheduler
-
   scheduled_worker:
     <<: *redash-service
     command: worker
-
   adhoc_worker:
     <<: *redash-service
     command: worker
-
   worker:
     <<: *redash-service
     command: worker
@@ -53,7 +50,8 @@ services:
 
   postgres:
     image: postgres:9.6-alpine
-    env_file: /opt/redash/env
+    env_file:
+      - env
     volumes:
-      - /opt/redash/postgres-data:/var/lib/postgresql/data
+      - ./postgres-data:/var/lib/postgresql/data
     restart: always
