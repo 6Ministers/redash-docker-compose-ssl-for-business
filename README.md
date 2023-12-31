@@ -1,4 +1,5 @@
 # This instruction is not yet working
+There is an error in the docker source files: https://github.com/getredash/redash/issues/6680
 
 Installing Redash+Caddy+SSL with docker-compose.
 
