@@ -7,6 +7,18 @@ x-redash-service: &redash-service
   env_file: /opt/redash/env
   restart: always
 services:
+#  caddy:
+#    image: caddy:alpine
+#    restart: unless-stopped
+#    container_name: caddy
+#    volumes:
+#      - ./Caddyfile:/etc/caddy/Caddyfile
+#      - ./certs:/certs
+#      - ./config:/config
+#      - ./data:/data
+#      - ./sites:/srv
+#    network_mode: "host"
+
   server:
     <<: *redash-service
     command: server
@@ -30,7 +42,7 @@ services:
       QUEUES: "periodic emails default"
       WORKERS_COUNT: 1
   redis:
-    image: redis:5.0-alpine
+    image: redis:7
     restart: always
   postgres:
     image: postgres:9.6-alpine

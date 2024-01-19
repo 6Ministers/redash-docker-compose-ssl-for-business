@@ -25,16 +25,10 @@ Install docker and docker-compose:
 curl -s https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/setup.sh | sudo bash -s
 ```
 
-Clone Redash's repo in your terminal with the following command:
-
-``` bash
-curl -s https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/download.sh | sudo bash -s redash
-```
-
 Navigate to the folder you created `redash`
 
 ``` bash
-cd redash
+cd /opt/redash
 ```
 
 Create the `Caddyfile`with the entry listed below
@@ -66,10 +60,42 @@ https://redash.your-domain.com:443 {
 
 ```
 
+Add entries to a section `services:`:
+
+``` bash
+services:
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./certs:/certs
+      - ./config:/config
+      - ./data:/data
+      - ./sites:/srv
+    network_mode: "host"
+
+```
+Delete these entries:
+
+``` bash
+  nginx:
+    image: redash/nginx:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    links:
+      - server:redash
+    restart: always
+```
+
+
 **Run Redash:**
 
 ``` bash
-docker-compose up -d
+sudo docker-compose down && sudo docker-compose up -d
 ```
 
 Then open `https://redash.domain.com:` to access Redash
@@ -102,3 +128,8 @@ docker-compose-non-dev down
 
 ## Documentation
 
+https://github.com/getredash/setup/tree/master
+
+https://github.com/getredash/setup/blob/master/setup.sh
+
+https://github.com/getredash/setup/blob/master/data/docker-compose.yml
