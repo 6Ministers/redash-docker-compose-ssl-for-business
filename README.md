@@ -21,12 +21,15 @@ sudo apt-get purge needrestart
 Install docker and docker-compose:
 
 ``` bash
-curl -s https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/setup.sh 
+curl -OL https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/setup.sh 
 ```
 
 Activate the script
 ``` bash
 chmod +x setup.sh
+```
+
+``` bash
 sudo ./setup.sh
 ```
 
