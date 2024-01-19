@@ -16,5 +16,5 @@ https://redash.domain.com:443 {
 		X-Robots-Tag "noindex, nofollow"
 		-X-Powered-By
 }
-	
+
 }
