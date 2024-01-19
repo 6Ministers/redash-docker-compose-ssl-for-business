@@ -66,7 +66,7 @@ setup_compose() {
   cd "$REDASH_BASE_PATH"
 #  GIT_BRANCH="${REDASH_BRANCH:-master}" # Default branch/version to master if not specified in REDASH_BRANCH env var
   curl -OL https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/docker-compose.yml
-  curl -OL https://github.com/6Ministers/redash-docker-compose-ssl-for-business-apps/blob/master/Caddyfile
+  curl -OL https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/Caddyfile
 #  sed -ri "s/image: redash\/redash:([A-Za-z0-9.-]*)/image: redash\/redash:$LATEST_VERSION/" docker-compose.yml
   echo "export COMPOSE_PROJECT_NAME=redash" >>~/.profile
   echo "export COMPOSE_FILE=$REDASH_BASE_PATH/docker-compose.yml" >>~/.profile
