@@ -21,7 +21,13 @@ sudo apt-get purge needrestart
 Install docker and docker-compose:
 
 ``` bash
-curl -s https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/setup.sh | sudo bash -s
+curl -s https://raw.githubusercontent.com/6Ministers/redash-docker-compose-ssl-for-business-apps/master/setup.sh 
+```
+
+Activate the script
+``` bash
+chmod +x setup.sh
+sudo ./setup.sh
 ```
 
 Navigate to the folder you created `redash`

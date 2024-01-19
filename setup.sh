@@ -73,7 +73,7 @@ setup_compose() {
   export COMPOSE_PROJECT_NAME=redash
   export COMPOSE_FILE="$REDASH_BASE_PATH"/docker-compose.yml
   sudo docker-compose run --rm server create_db
-  sudo docker-compose up -d
+#  sudo docker-compose up -d
 }
 
 install_docker
